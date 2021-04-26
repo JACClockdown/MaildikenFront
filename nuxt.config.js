@@ -38,10 +38,26 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     '@nuxtjs/axios',
+    '@nuxtjs/auth',
     'bootstrap-vue/nuxt'
   ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+  },
+
+  auth: {
+    strategies: {
+      'laravelJWT': {
+          provider: 'laravel/jwt',
+          url: 'http://127.0.0.1:8000/api',
+          endpoints: {
+            login: { url: '/auth/login', method: 'post', propertyName: 'data.token' },
+            user: { url: '/auth/me', method: 'post', propertyName: 'data' },
+            logout: false
+          }
+      }
+    }
   }
+  
 }
