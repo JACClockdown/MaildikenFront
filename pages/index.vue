@@ -1,17 +1,18 @@
 <template>
-  <div class="container">
-    <div>
-      <Diken />
-      <h1 class="title">
-        DikenMail
-      </h1>
-      <button class="btn btn-info">Send</button>
-    </div>
-  </div>
+  <body id="page-top">
+    <Sidebar />
+  </body>
 </template>
 
 <script>
-export default {}
+export default {
+  middleware: ['auth'],
+  head () {
+      return {
+        title: 'Diken - Dashboard',
+      }
+  }
+}
 </script>
 
 <style>
