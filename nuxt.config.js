@@ -51,11 +51,19 @@ export default {
   },
 
   auth: {
+
+    redirect: {
+      login: '/login',
+      logout: '/logout',
+      home: '/',
+      
+    },
+
     strategies: {
       local: {
         endpoints: {
-          login: { url: 'http://127.0.0.1:8000/api/auth/login', method: 'post', propertyName: 'data.access_token' },
-          user:  { url: 'http://127.0.0.1:8000/api/auth/me', method: 'get', propertyName: 'data.user' },
+          login: { url: 'http://127.0.0.1:8000/api/auth/login', method: 'post', propertyName: 'access_token' },
+          user:  { url: 'http://127.0.0.1:8000/api/auth/me', method: 'get', propertyName: false },
           logout:{ url: 'http://127.0.0.1:8000/api/auth/auth/logout', method: 'post' }
         }
       }

@@ -62,7 +62,7 @@ export default {
     async login() {
       try {
         let response = await this.$auth.loginWith('local', { data: this.form })
-        this.$route('API/index')
+        
       } catch (err) {
         console.log('Credenciales de acceso incorrectas');
       }
