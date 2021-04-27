@@ -5,7 +5,7 @@
         <div class="column is-4 is-offset-4">
           <h2 class="title has-text-centered">Welcome back!</h2>
 
-          <Notification :message="error" v-if="error"/>
+        
 
           <form method="post" @submit.prevent="login">
             <div class="field">
@@ -15,7 +15,7 @@
                   type="email"
                   class="input"
                   name="email"
-                  v-model="email"
+                  v-model="form.email"
                 />
               </div>
             </div>
@@ -26,7 +26,7 @@
                   type="password"
                   class="input"
                   name="password"
-                  v-model="password"
+                  v-model="form.password"
                 />
               </div>
             </div>
@@ -46,38 +46,28 @@
 </template>
 
 <script>
-//import Notification from '~/components/Notification'
 
 export default {
-  /*  
-  components: {
-    Notification,
-  },
-  */
 
   data() {
     return {
-      email: '',
-      password: '',
-      error: null
+      form: {
+        email: '',
+        password: ''
+      }
     }
   },
 
-  methods: {
+  methods:{
     async login() {
       try {
-        await this.$auth.loginWith('local', {
-          data: {
-          email: this.email,
-          password: this.password
-          }
-        })
-
-        this.push('/API/index')
-      } catch (e) {
-        this.error = e.response.data.message
+        let response = await this.$auth.loginWith('local', { data: this.form })
+        this.$route('API/index')
+      } catch (err) {
+        console.log('Credenciales de acceso incorrectas');
       }
     }
   }
+
 }
 </script>

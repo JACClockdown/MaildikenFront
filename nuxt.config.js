@@ -14,7 +14,10 @@ export default {
       { hid: 'description', name: 'description', content: '' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { 
+        rel: 'icon', type: 'image/x-icon', href: '/favicon.ico',
+        rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css'  
+      }
     ]
   },
 
@@ -26,6 +29,7 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    '@/plugins/axios'
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -48,14 +52,12 @@ export default {
 
   auth: {
     strategies: {
-      'laravelJWT': {
-          provider: 'laravel/jwt',
-          url: 'http://127.0.0.1:8000/api',
-          endpoints: {
-            login: { url: '/auth/login', method: 'post', propertyName: 'data.token' },
-            user: { url: '/auth/me', method: 'post', propertyName: 'data' },
-            logout: false
-          }
+      local: {
+        endpoints: {
+          login: { url: 'http://127.0.0.1:8000/api/auth/login', method: 'post', propertyName: 'data.access_token' },
+          user:  { url: 'http://127.0.0.1:8000/api/auth/me', method: 'get', propertyName: 'data.user' },
+          logout:{ url: 'http://127.0.0.1:8000/api/auth/auth/logout', method: 'post' }
+        }
       }
     }
   }
