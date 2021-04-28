@@ -18,7 +18,8 @@ export default {
         rel: 'icon', type: 'image/x-icon', href: '/favicon.ico',
         rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i'  
       }
-    ]
+    ],
+    
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -27,6 +28,16 @@ export default {
     '@/assets/css/sb-admin-2.min.css'
   ],
 
+  script:[
+    '@/assets/vendor/jquery/jquery.min.js',
+    '@/assets/vendor/bootstrap/js/bootstrap.bundle.min.js',
+    '@/assets/vendor/jquery-easing/jquery.easing.min.js',
+    '@/assets/js/sb-admin-2.min.js',
+    '@/assets/vendor/chart.js/Chart.min.js',
+    '@/assets/js/demo/chart-area-demo.js',
+    '@/assets/js/demo/chart-pie-demo.js'
+
+  ],
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     '@/plugins/axios'

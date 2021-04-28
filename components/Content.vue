@@ -118,7 +118,7 @@
                                 </h6>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="img/undraw_profile_1.svg"
+                                        <img class="rounded-circle" src="@/assets/img/undraw_profile_1.svg"
                                             alt="">
                                         <div class="status-indicator bg-success"></div>
                                     </div>
@@ -130,7 +130,7 @@
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="img/undraw_profile_2.svg"
+                                        <img class="rounded-circle" src="@/assets/img/undraw_profile_2.svg"
                                             alt="">
                                         <div class="status-indicator"></div>
                                     </div>
@@ -142,7 +142,7 @@
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="img/undraw_profile_3.svg"
+                                        <img class="rounded-circle" src="@/assets/img/undraw_profile_3.svg"
                                             alt="">
                                         <div class="status-indicator bg-warning"></div>
                                     </div>
@@ -208,25 +208,52 @@
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-                    <h1>Dashboard</h1>
+                    <div>
+                        Templates
+                        <br>
+                        <li class="item" v-for="post in posts"  v-bind:key="post.id">
+                            <nuxt-link to="/">
+                            {{post.id}}. {{post.name}}
+                            </nuxt-link>
+                        </li>
+                    </div>
                 </div>    
         </div>
     </div>
 </template>
 
 <script>
+
 import { mapGetters } from 'vuex'
 
 export default {
+  name: "Templates",
   computed: {
     ...mapGetters(['isAuthenticated', 'loggedInUser'])
+  },
+
+  data(){
+      return{
+        data:[],
+        total_data: 0
+      }
   },
 
   methods: {
     async logout() {
       await this.$auth.logout();
       this.push('/login')
+    },
+
+    async init() {
+        let data = await this.$axios.$get('http://127.0.0.1:8000/api/templates');
+        return { posts: data.templates }
+        
     }
+
+  },
+  async fetch() {
+    await this.init();
   }
 }
 </script>
