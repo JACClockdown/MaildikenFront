@@ -1,17 +1,26 @@
 <template>
   <section class="section">
-    <div class="container mt-5">
-      <div class="col-mb-10">
-        <div class="col-mb-4">
+    <div class="col-md-12" style="background: #0767c6 0 0 no-repeat padding-box">
+      <div class="row">
+        <div class="col-md-3" style="background: #fff; border-radius: 0 0 100px 0; position: relative;">
+          <img src="@/assets/images/logo-diken-30-aniversario.png" alt="" width="150px" height="50px">
+        </div> 
+      </div>
+    </div>
+    <div class="container mt-5" >
+      <div class="row">
 
+        <div class="col-md-4">
+          
         </div>
-        <div class="col-mb-4">
-          <div class="card text-white bg-light mb-3" >
+
+        <div class="col-md-4 sub-container">
+          <div class="card text-white bg-light mt-3 mb-3" >
+
             <div class="card-header" style="background-color: #FF5733">
-              <center>
-                <img src="@/assets/images/logo-diken-30-aniversario.png" alt="">
-              </center>  
+              <img src="@/assets/images/logo-diken-30-aniversario.png" alt="" class='img-card'>
             </div>
+
             <div class="card-body" style="background-color: #FA947E">
               <form method="post" @submit.prevent="login">
                 <div class="field">
@@ -44,8 +53,9 @@
             </div>
           </div>
         </div>
-        <div class="col-mb-4">
 
+        <div class="col-md-4">
+          
         </div>
       </div>
     </div>
@@ -78,3 +88,13 @@ export default {
 
 }
 </script>
+<style>
+.img-card{
+  max-width: 100%;
+  height: auto;
+}
+.sub-container{
+  background: orange;
+  border-radius: 10px 10px 10px 10px;
+}
+</style>
