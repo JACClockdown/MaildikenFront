@@ -1,10 +1,21 @@
 <template>
   <body id="page-top">
-    <Sidebar />
+    <div id="wrapper">
+      <Sidebar />
+      <div id="content-wrapper" class="d-flex flex-column">
+        <div id="content">
+          <Topbar />
+          <div class="container-fluid">
+            <h3>Dashboard</h3>
+          </div>    
+        </div>
+      </div>  
+    </div>
   </body>
 </template>
 
 <script>
+import { Content } from '~/components/Content'
 export default {
   middleware: ['auth'],
   head () {

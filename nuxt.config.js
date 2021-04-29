@@ -65,7 +65,7 @@ export default {
 
     redirect: {
       login: '/login',
-      logout: '/logout',
+      logout: '/login',
       home: '/',
       
     },
