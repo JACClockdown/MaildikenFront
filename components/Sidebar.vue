@@ -41,11 +41,11 @@
 
                 <!-- Nav Item - Utilities Collapse Menu -->
                 <li class="nav-item">
-                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+                    <nuxt-link class="nav-link collapsed" to="/API/clients/" data-toggle="collapse" data-target="#collapseUtilities"
                         aria-expanded="true" aria-controls="collapseUtilities">
                         <i class="fas fa-fw fa-list"></i>
                         <span>Clients</span>
-                    </a>
+                    </nuxt-link>
                     <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
                         data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
@@ -111,7 +111,7 @@
 
                 <!-- Sidebar Message -->
                 <div class="sidebar-card">
-                    <img class="sidebar-card-illustration mb-2" src="img/undraw_rocket.svg" alt="">
+                    <img class="sidebar-card-illustration mb-2" src="@/assets/img/undraw_rocket.svg" alt="">
                     <p class="text-center mb-2"><strong>SB Admin Pro</strong> is packed with premium features, components, and more!</p>
                     <a class="btn btn-success btn-sm" href="https://startbootstrap.com/theme/sb-admin-pro">Upgrade to Pro!</a>
                 </div>
