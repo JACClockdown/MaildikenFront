@@ -20,9 +20,9 @@
                     </div>
                     <div class="form-group">
                         <label for="name">Content:</label>
-                        <textarea name="content" v-model="formData.content" class="form-control" id="" cols="30" rows="10" placeholder="Content Template" required>
-
-                        </textarea>
+                        <client-only placeholder="loading...">
+                          <ckeditor-nuxt v-model="contentHolder" :config="editorConfig"  />
+                        </client-only>
                     </div>
                     <div class="form-group">
                       <input type="hidden" name="client_id">
@@ -48,6 +48,9 @@ export default {
 
   name: "Create",
   middleware: ['auth'],
+  components: {
+    'ckeditor-nuxt': () => { if (process.client) { return import('@blowstack/ckeditor-nuxt') } },
+  },
   head () {
       return {
         title: 'Diken - Dashboard',
