@@ -21,7 +21,7 @@
                     <div class="form-group">
                         <label for="name">Content:</label>
                         <client-only placeholder="loading...">
-                          <ckeditor-nuxt v-model="contentHolder" :config="editorConfig"  />
+                          <ckeditor-nuxt v-model="formData.content" :config="editorConfig"  />
                         </client-only>
                     </div>
                     <div class="form-group">
@@ -72,13 +72,14 @@ export default {
       
       e.preventDefault();
       
+      
       try{
         let template = await this.$axios.$post('http://127.0.0.1:8000/api/template', this.formData)
         this.$router.push('/API/templates/');
       }catch(e){
         console.log("Error al crear template")
       }
-
+      
     }
   }
 }

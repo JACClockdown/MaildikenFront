@@ -13,6 +13,10 @@ export default {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: '' }
     ],
+    script: [
+      { src: 'https://code.jquery.com/jquery-3.5.1.min.js' },
+      { src: 'https://code.jquery.com/ui/1.12.1/jquery-ui.js' },
+    ],
     link: [
       { 
         rel: 'icon', type: 'image/x-icon', href: '/favicon.ico',
