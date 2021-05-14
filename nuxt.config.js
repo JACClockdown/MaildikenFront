@@ -58,6 +58,7 @@ export default {
   modules: [
     '@nuxtjs/axios',
     '@nuxtjs/auth',
+    '@nuxtjs/proxy',
     'bootstrap-vue/nuxt'
   ],
 
